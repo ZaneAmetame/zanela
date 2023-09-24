@@ -1,0 +1,51 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+    <button onclick="
+    button();
+    
+        " class="bt1">subscribe</button><br>
+        <br>
+<input placeholder="cost of products" class="cost">
+
+<button onclick="
+total();
+
+">calculate</button>
+
+<p class="out"></p>
+        <script>
+
+                function button(){
+                const bt=document.querySelector('.bt1')
+                if(bt.innerHTML==='subscribe'){
+                    bt.innerHTML='subscribed'
+                }else{
+                    bt.innerHTML='subscribe'
+                }
+            }
+
+function total (){
+const inputelement=document.querySelector('.cost')
+let cost =Number(inputelement.value);
+
+if(cost < 40){
+    cost = cost + 10;
+}
+
+
+document.querySelector('.out').innerHTML=`${cost}`;
+}
+
+
+
+
+
+        </script>
+    </body>
+    </html>

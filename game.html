@@ -1,0 +1,304 @@
+                    <!DOCTYPE html>
+                    <html>
+                    <head>
+                        <meta charset="UTF-8">
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        <title>Document</title>
+                        <link rel="stylesheet" href="game.css">
+                        <style>
+                            *{
+                                background-color:rgb(25,25,25);
+                                color: white;
+                            }
+.r{
+width: 7pc;
+border: 1px solid;
+border-color: white;
+padding: 2pc;
+border-radius: 40%;
+cursor: pointer;
+
+}
+
+
+.paragraph{
+margin-top: 2pc;
+font-size: 3pc;
+
+
+}
+
+.logo{
+width: 7pc;
+border: 1px solid ;
+border-color: white;
+border: 40%;
+
+}
+
+h2{
+
+    margin-left: 12pc;
+    
+}
+
+.paper{
+margin-left: 3pc;
+    width: 7pc;
+    border: 1px solid;
+    border-color: white;
+    border-radius: 40%;
+    padding: 2pc;
+    cursor: pointer;
+}
+.sezer{
+
+    width: 7pc;
+    margin-left: 3pc;
+    background-color: white;
+    padding: 3pc;
+    border-radius: 40%;
+    padding: 4pc;
+    cursor: pointer;
+}
+
+.reset{
+font-size: 2pc;
+padding: 1pc;
+margin-top: 3pc;
+border-radius: 10%;
+border-color: white;
+cursor: pointer;
+background-color: white;
+color: black;
+}
+
+.player{
+width: 7pc;
+
+}
+.computer{
+
+    width: 7pc;
+}
+
+                        </style>
+                    </head>
+                    <body> 
+                        
+                  <p class="paragraph">
+                    <img src="logoall.png" class="logo" >
+                    Rock Paper Scissors</p>
+
+
+<h2>Choose Your Move</h2>
+
+
+                    <img src="rock.png" class="r" onclick="
+
+                const computermove=computerselection();
+                    
+                    Rock();
+                    finish();
+                    querry();
+                    ">Rock</button>
+                    
+                
+                    <img src='paper.png' class=" paper" onclick="
+                computermove= computerselection();
+                    Paper();
+                    finish();
+                    querry();
+
+
+
+                    ">paper</button>
+
+
+                    <img src="scissors.png" class="sezer" onclick="
+                computermove=computerselection();
+                    scissors();
+                    finish();
+                    querry();
+
+                    " style="background-color: white;">
+                        scissors
+                    </button><BR>
+
+                        <p class="result"></p>
+                        <p class="any"></p> 
+                        <p class="js-score"></p>
+
+                        
+                        
+
+
+                    <button  class="reset" onclick="
+            score.bracket=0;
+            score.loose=0;
+            score.win=0;
+            querry();
+
+                    ">Resert Score</button>
+                    <button class="reset" onclick="
+                    autoplay();
+                    
+                    
+                    " class="bt1">Auto play</button>
+                
+                    <script>
+                        
+function autoplay(){   
+
+  id=setInterval( function(){
+
+        computerselection();
+ playermove='';
+if(computermove==='Paper'){
+    playermove='Scissors'
+
+}else if(computermove==='Rock'){
+playermove='paper'
+
+}else if(computermove==='Scissors'){
+playermove='rock'
+}
+finish();
+querry();
+Rock();
+    },1000)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+        const score={
+            win:0,loose:0,bracket:0
+        };
+
+
+
+                    
+                         
+        
+                    
+                    result='';
+                    function Rock(){
+                        if(computermove==='Rock'){
+                            result='Bracket';
+                            
+                        }else if(computermove==='Paper'){
+                            result='You loose';
+
+                        }else if(computermove==='Scissors'){
+                            result='You win';
+                        }
+                    playermove='rock';
+
+                
+
+                    }
+
+
+                
+       function querry(){
+        document.querySelector('.js-score').innerText=`win:${score.win}   loose:${score.loose}    bracket:${score.bracket}`;
+     document.querySelector('.any').innerHTML= 
+     `You <br><img src="${playermove}.png"  class="player" > <br><br><img src="${computermove}.png" class="computer"> Computer`;
+
+      document.querySelector('.result').innerText=`${result}`;
+
+                }     
+                
+            
+
+                    function finish (){
+                    if(result==='You win'){
+                    score.win=score.win+1;
+
+                    }
+                    else if(result==='You loose'){
+                    score.loose=score.loose+1;
+                    }
+                    else if(result==='Bracket'){
+                    score.bracket=score.bracket+1;
+
+                    }
+                    
+
+                    }
+
+            
+                
+                    
+
+                
+
+
+                    
+                    function computerselection(){
+
+                        computermove='';
+                    const number=Math.random();
+                    if(number>=0 && number<=1/3){
+                    computermove=`Rock`;
+                    }else if(number>=1/3 && number<=2/3){
+                    computermove='Paper';
+                    }else if(number>=2/3 && number<1){
+                        computermove='Scissors';
+                    }
+                    return computermove
+
+                    }
+                    
+                    result='';
+                    function Paper(){
+                    if(computermove==='Rock'){
+                    result='You win';
+                    }else if(computermove==='Paper'){
+                        result='Bracket';
+                    }else if(computermove==='Scissors'){
+                        result='You loose';
+                    }
+playermove='paper';               
+
+                    }
+
+                    result='';
+                    function scissors(){
+                        if(computermove==='Rock'){
+                            result='You loose';
+                        }else if(computermove==='Paper'){
+                            result='You win';
+
+                        }else if(computermove==='Scissors') {
+                    result='Bracket';
+
+
+                        }
+                        playermove='Scissors';
+                        
+                    }
+
+
+
+
+
+                    </script>
+
+                    </body>
+                        
+                    </html>
